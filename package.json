@@ -1,0 +1,41 @@
+{
+  "name": "fluent-tailwinds",
+  "version": "0.1.0",
+  "description": "Microsoft Fluent 2 design tokens for Tailwind CSS v4 — colors, elevation, motion, shape and typography as Tailwind utilities.",
+  "license": "MIT",
+  "keywords": [
+    "tailwindcss",
+    "tailwind",
+    "fluent",
+    "fluent-2",
+    "fluent-ui",
+    "microsoft-fluent",
+    "design-tokens",
+    "design-system",
+    "theme"
+  ],
+  "main": "index.css",
+  "style": "index.css",
+  "exports": {
+    ".": "./index.css",
+    "./index.css": "./index.css",
+    "./package.json": "./package.json"
+  },
+  "files": ["index.css", "README.md", "LICENSE"],
+  "sideEffects": ["*.css"],
+  "scripts": {
+    "demo:build": "tailwindcss -i demo/demo.css -o demo/demo-output.css",
+    "demo:watch": "tailwindcss -i demo/demo.css -o demo/demo-output.css --watch",
+    "test": "npm run demo:build && node scripts/verify.mjs"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^4.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

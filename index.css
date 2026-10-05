@@ -1,0 +1,482 @@
+/*!
+ * fluent-tailwinds — Microsoft Fluent 2 design tokens for Tailwind CSS v4
+ *
+ * Usage:
+ *   @import "tailwindcss";
+ *   @import "fluent-tailwinds";
+ *
+ * Light theme is the default. Dark theme overrides the same CSS variables and
+ * is activated by `class="dark"` on <html> or `data-theme="dark"`.
+ * Because every utility references `var(--color-*)`, switching themes is
+ * instant and needs no rebuild.
+ */
+
+/* ==========================================================================
+   1. LIGHT THEME (default) — Fluent 2 brand / neutral ramps.
+   Declared inside @theme so Tailwind generates matching utilities:
+   --color-brand -> bg-brand, text-brand, border-brand, ...
+   ========================================================================== */
+
+@theme {
+  /* ---- Brand ------------------------------------------------------------ */
+  --color-brand: #0f6cbd;
+  --color-brand-hover: #115ea3;
+  --color-brand-pressed: #0c3b5e;
+  --color-brand-subtle: #eff6fc;
+  --color-brand-selected: #e5f1fb;
+  --color-brand-foreground: #ffffff;
+  --color-brand-foreground-disabled: #ffffff;
+  --color-brand-icon: #0f6cbd;
+  --color-brand-icon-alt: #0078d4;
+
+  /* ---- Neutral foreground (text) ---------------------------------------- */
+  --color-fg: #242424;
+  --color-fg-secondary: #424242;
+  --color-fg-tertiary: #616161;
+  --color-fg-disabled: #bdbdbd;
+  --color-fg-inverse: #ffffff;
+  --color-fg-inverse-secondary: #d6d6d6;
+
+  /* ---- Neutral background (surfaces) ------------------------------------ */
+  --color-bg-canvas: #f3f3f3;
+  --color-bg-layer: #eeeeee;
+  --color-bg-layer-alt: #fafafa;
+  --color-bg-layer-alt2: #ffffff;
+  --color-bg-subtle: #fafafa;
+  --color-bg-disabled: #f5f5f5;
+  --color-bg-card: #ffffff;
+  --color-bg-inverse: #292929;
+  --color-bg-transparent: #ffffff00;
+
+  /* ---- Fill -------------------------------------------------------------- */
+  --color-fill-subtle: #f9f9f9;
+  --color-fill-transparent: #ffffff00;
+  --color-fill-input: #ffffff;
+  --color-fill-input-hover: #f5f5f5;
+  --color-fill-input-disabled: #f0f0f0;
+  --color-fill-inverse: #292929;
+  --color-fill-inverse-secondary: #333333;
+
+  /* ---- Stroke (borders) --------------------------------------------------- */
+  --color-stroke-default: #d6d6d6;
+  --color-stroke-secondary: #e0e0e0;
+  --color-stroke-tertiary: #f0f0f0;
+  --color-stroke-subtle: #e6e6e6;
+  --color-stroke-inverse: #ffffff;
+  --color-stroke-inverse-secondary: #d6d6d6;
+  --color-stroke-inverse-tertiary: #767676;
+  --color-stroke-divider: #d6d6d6;
+  --color-stroke-divider-inverse: #767676;
+  --color-stroke-outline: #707070;
+  --color-stroke-focus: #0f6cbd;
+  --color-stroke-focus-inner: #ffffff;
+  --color-stroke-focus-secondary: #707070;
+  --color-stroke-brand: #0f6cbd;
+  --color-stroke-brand2: #0f6cbd;
+  --color-stroke-brand3: #0f6cbd;
+  --color-stroke-brand4: #c8deec;
+
+  /* ---- Status ------------------------------------------------------------ */
+  --color-critical: #d13438;
+  --color-critical-hover: #a92e31;
+  --color-critical-pressed: #801426;
+  --color-critical-bg: #fdf3f4;
+  --color-critical-border: #f4c6c7;
+
+  --color-success: #0f7b0f;
+  --color-success-hover: #0d5d0d;
+  --color-success-pressed: #54b050;
+  --color-success-bg: #dff6dd;
+  --color-success-border: #9fdf9f;
+
+  --color-warning: #bc4b09;
+  --color-warning-hover: #983900;
+  --color-warning-pressed: #d8b800;
+  --color-warning-bg: #fff4ce;
+  --color-warning-border: #f2d5a0;
+
+  --color-info: #0f6cbd;
+  --color-info-bg: #e5f1fb;
+  --color-info-border: #c8deec;
+
+  /* ======================================================================
+     2. THEME-INDEPENDENT TOKENS — Fluent shape, stroke width, elevation,
+        motion and typography ramps.
+     ====================================================================== */
+
+  /* ---- Corner radius (Fluent corner radius ramp) ------------------------ */
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-control: 4px;
+  --radius-surface: 4px;
+  --radius-card: 8px;
+  --radius-overlay: 8px;
+  --radius-circle: 9999px;
+
+  /* ---- Stroke widths ------------------------------------------------------
+     Named `--border-width-*` so they produce `border-width-stroke*`
+     utilities. They must NOT be named `--border-stroke*`: that namespace
+     collides with the `--color-stroke-*` role tokens, which produce
+     `border-stroke-*` colour utilities (both would claim the same class). */
+  --border-width-stroke: 1px;
+  --border-width-stroke-thick: 2px;
+  --border-width-stroke-thicker: 3px;
+  --border-width-stroke-thickest: 4px;
+
+  /* ---- Elevation (Fluent 2 shadow ramp) --------------------------------- */
+  --shadow-2: 0 1px 2px rgb(0 0 0 / 0.14);
+  --shadow-4: 0 2px 4px rgb(0 0 0 / 0.14);
+  --shadow-8: 0 4px 8px rgb(0 0 0 / 0.14);
+  --shadow-16: 0 8px 16px rgb(0 0 0 / 0.14);
+  --shadow-28: 0 14px 28px rgb(0 0 0 / 0.24);
+  --shadow-64: 0 32px 64px rgb(0 0 0 / 0.24);
+
+  /* ---- Motion durations -------------------------------------------------- */
+  --transition-duration-instant: 0ms;
+  --transition-duration-ultra-fast: 50ms;
+  --transition-duration-faster: 100ms;
+  --transition-duration-fast: 150ms;
+  --transition-duration-normal: 200ms;
+  --transition-duration-gentle: 400ms;
+  --transition-duration-slow: 500ms;
+  --transition-duration-slower: 600ms;
+
+  /* ---- Motion easing curves --------------------------------------------- */
+  --ease-linear: linear;
+  --ease-standard: cubic-bezier(0.33, 0, 0.67, 1);
+  --ease-decelerate: cubic-bezier(0.1, 0.9, 0.2, 1);
+  --ease-accelerate: cubic-bezier(0.9, 0.1, 0.2, 1);
+  --ease-emphasized: cubic-bezier(0.67, 0, 0.17, 1);
+  --ease-emphasized-standard: cubic-bezier(0.33, 0, 0.67, 1);
+  --ease-emphasized-decelerate: cubic-bezier(0.1, 0.9, 0.2, 1);
+  --ease-emphasized-accelerate: cubic-bezier(0.9, 0.1, 0.2, 1);
+  /* WinUI "StandardEasing" reference curve */
+  --ease-winui: cubic-bezier(0.167, 0.167, 0.167, 1);
+
+  /* ---- Typography ramp --------------------------------------------------- */
+  --font-sans:
+    "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, "Helvetica Neue",
+    sans-serif;
+  --font-display:
+    "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "Cascadia Code", "Consolas", ui-monospace, monospace;
+
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1.33;
+  --text-caption2: 0.6875rem;
+  --text-caption2--line-height: 1.33;
+  --text-body: 0.875rem;
+  --text-body--line-height: 1.43;
+  --text-body2: 0.8125rem;
+  --text-body2--line-height: 1.43;
+  --text-subtitle: 1rem;
+  --text-subtitle--line-height: 1.33;
+  --text-subtitle2: 1.25rem;
+  --text-subtitle2--line-height: 1.4;
+  --text-title: 1.75rem;
+  --text-title--line-height: 1.25;
+  --text-title2: 1.375rem;
+  --text-title2--line-height: 1.28;
+  --text-large: 2rem;
+  --text-large--line-height: 1.2;
+  --text-display: 2.75rem;
+  --text-display--line-height: 1.13;
+  --text-display-large: 3.5rem;
+  --text-display-large--line-height: 1.11;
+
+  /* ---- Animations -------------------------------------------------------- */
+  --animate-fade-in: fade-in var(--transition-duration-normal) var(--ease-decelerate)
+    both;
+  --animate-fade-out: fade-out var(--transition-duration-normal) var(--ease-accelerate)
+    both;
+  --animate-slide-up: slide-up var(--transition-duration-gentle) var(--ease-decelerate)
+    both;
+  --animate-slide-down: slide-down var(--transition-duration-gentle) var(--ease-accelerate)
+    both;
+  --animate-ripple: ripple 400ms var(--ease-standard) both;
+  --animate-spin-slow: spin 2s linear infinite;
+}
+
+/* ==========================================================================
+   3. DARK THEME — overrides the same custom properties.
+   Selectors use `html.dark` / `html[data-theme="dark"]` (specificity 0,1,1)
+   so they beat the `:root` block Tailwind emits from @theme.
+   ========================================================================== */
+
+html.dark,
+html[data-theme="dark"] {
+  /* Brand */
+  --color-brand: #4cb0ff;
+  --color-brand-hover: #62abef;
+  --color-brand-pressed: #87cefa;
+  --color-brand-subtle: #0a3a5a;
+  --color-brand-selected: #003a5e;
+  --color-brand-foreground: #00325b;
+  --color-brand-foreground-disabled: #4d545c;
+  --color-brand-icon: #4cb0ff;
+  --color-brand-icon-alt: #4cb0ff;
+
+  /* Foreground */
+  --color-fg: #ffffff;
+  --color-fg-secondary: #d6d6d6;
+  --color-fg-tertiary: #adadad;
+  --color-fg-disabled: #5d5d5d;
+  --color-fg-inverse: #161616;
+  --color-fg-inverse-secondary: #5d5d5d;
+
+  /* Background */
+  --color-bg-canvas: #1b1b1b;
+  --color-bg-layer: #202020;
+  --color-bg-layer-alt: #272727;
+  --color-bg-layer-alt2: #1f1f1f;
+  --color-bg-subtle: #1a1a1a;
+  --color-bg-disabled: #1f1f1f;
+  --color-bg-card: #1f1f1f;
+  --color-bg-inverse: #ffffff;
+  --color-bg-transparent: #ffffff00;
+
+  /* Fill */
+  --color-fill-subtle: #1c1c1c;
+  --color-fill-transparent: #ffffff00;
+  --color-fill-input: #323232;
+  --color-fill-input-hover: #292929;
+  --color-fill-input-disabled: #292929;
+  --color-fill-inverse: #ffffff;
+  --color-fill-inverse-secondary: #e6e6e6;
+
+  /* Stroke */
+  --color-stroke-default: #3d3d3d;
+  --color-stroke-secondary: #4b4b4b;
+  --color-stroke-tertiary: #616161;
+  --color-stroke-subtle: #353535;
+  --color-stroke-inverse: #161616;
+  --color-stroke-inverse-secondary: #292929;
+  --color-stroke-inverse-tertiary: #767676;
+  --color-stroke-divider: #3d3d3d;
+  --color-stroke-divider-inverse: #767676;
+  --color-stroke-outline: #8a8886;
+  --color-stroke-focus: #4cb0ff;
+  --color-stroke-focus-inner: #1b1b1b;
+  --color-stroke-focus-secondary: #8a8886;
+  --color-stroke-brand: #005fb7;
+  --color-stroke-brand2: #004578;
+  --color-stroke-brand3: #00325b;
+  --color-stroke-brand4: #1a3a4d;
+
+  /* Status */
+  --color-critical: #ff99a4;
+  --color-critical-hover: #f97089;
+  --color-critical-pressed: #e8818a;
+  --color-critical-bg: #3d0510;
+  --color-critical-border: #722527;
+
+  --color-success: #6ccb5f;
+  --color-success-hover: #3faf33;
+  --color-success-pressed: #54b050;
+  --color-success-bg: #123a12;
+  --color-success-border: #285e28;
+
+  --color-warning: #fce100;
+  --color-warning-hover: #f9d21c;
+  --color-warning-pressed: #d8b800;
+  --color-warning-bg: #3b2a00;
+  --color-warning-border: #5c4711;
+
+  --color-info: #4cb0ff;
+  --color-info-bg: #06283d;
+  --color-info-border: #1a3a4d;
+}
+
+/* ==========================================================================
+   4. UTILITIES
+   ========================================================================== */
+
+/* Fluent focus ring: outer stroke + inner contrast ring (WCAG 2.4.11 / 2.4.13) */
+@utility focus-ring {
+  outline: 2px solid var(--color-stroke-focus);
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px var(--color-stroke-focus-inner);
+}
+
+@utility focus-ring-inset {
+  outline: 2px solid var(--color-stroke-focus);
+  outline-offset: -2px;
+}
+
+/* ---- Fluent z-index layers ---------------------------------------------
+   Tailwind v4 has no theme namespace for *named* z-index values (only bare
+   numbers like `z-42` resolve), so these ship as @utility instead.
+   They are also mirrored as plain custom properties for use inside
+   hand-written CSS and inline `z-index:` declarations. */
+@utility z-navigation {
+  z-index: var(--z-fluent-navigation);
+}
+@utility z-flyout {
+  z-index: var(--z-fluent-flyout);
+}
+@utility z-overlay {
+  z-index: var(--z-fluent-overlay);
+}
+@utility z-modal {
+  z-index: var(--z-fluent-modal);
+}
+@utility z-popover {
+  z-index: var(--z-fluent-popover);
+}
+@utility z-toast {
+  z-index: var(--z-fluent-toast);
+}
+@utility z-tooltip {
+  z-index: var(--z-fluent-tooltip);
+}
+
+:root {
+  --z-fluent-navigation: 1000;
+  --z-fluent-flyout: 1100;
+  --z-fluent-overlay: 1300;
+  --z-fluent-modal: 1400;
+  --z-fluent-popover: 1500;
+  --z-fluent-toast: 1600;
+  --z-fluent-tooltip: 1700;
+}
+
+/* Fluent elevation helpers: shadow + surface colour together */
+@utility elevation-4 {
+  background-color: var(--color-bg-layer-alt2);
+  box-shadow: var(--shadow-4);
+}
+@utility elevation-8 {
+  background-color: var(--color-bg-layer-alt2);
+  box-shadow: var(--shadow-8);
+}
+@utility elevation-16 {
+  background-color: var(--color-bg-layer-alt2);
+  box-shadow: var(--shadow-16);
+}
+@utility elevation-28 {
+  background-color: var(--color-bg-layer-alt2);
+  box-shadow: var(--shadow-28);
+}
+@utility elevation-64 {
+  background-color: var(--color-bg-layer-alt2);
+  box-shadow: var(--shadow-64);
+}
+
+/* Fluent typography helpers */
+@utility text-heading {
+  color: var(--color-fg);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+@utility text-body-strong {
+  color: var(--color-fg);
+  font-weight: 600;
+}
+@utility text-secondary {
+  color: var(--color-fg-secondary);
+}
+@utility text-tertiary {
+  color: var(--color-fg-tertiary);
+}
+
+/* Fluent interactive surfaces */
+@utility surface-control {
+  background-color: var(--color-bg-card);
+  border: var(--border-width-stroke) solid var(--color-stroke-default);
+  border-radius: var(--radius-control);
+}
+@utility surface-card {
+  background-color: var(--color-bg-card);
+  border: var(--border-width-stroke) solid var(--color-stroke-default);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-4);
+}
+@utility surface-acrylic {
+  background-color: color-mix(
+    in srgb,
+    var(--color-bg-layer-alt2) 80%,
+    transparent
+  );
+  backdrop-filter: blur(30px) saturate(125%);
+  border: var(--border-width-stroke) solid var(--color-stroke-subtle);
+  border-radius: var(--radius-overlay);
+}
+
+/* Fluent motion presets */
+@utility motion-standard {
+  transition-duration: var(--transition-duration-normal);
+  transition-timing-function: var(--ease-standard);
+}
+@utility motion-gentle {
+  transition-duration: var(--transition-duration-gentle);
+  transition-timing-function: var(--ease-standard);
+}
+@utility motion-emphasized {
+  transition-duration: var(--transition-duration-normal);
+  transition-timing-function: var(--ease-emphasized);
+}
+
+/* Kill motion for users who asked for it */
+@utility motion-safe {
+  @media (prefers-reduced-motion: reduce) {
+    animation-duration: 0.01ms;
+    transition-duration: 0.01ms;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes ripple {
+  from {
+    opacity: 0.35;
+    transform: scale(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(2.4);
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

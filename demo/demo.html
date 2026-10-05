@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>fluent-tailwinds — Fluent 2 tokens demo</title>
+    <link rel="stylesheet" href="./demo-output.css" />
+    <style>
+      :root { color-scheme: light dark; }
+    </style>
+  </head>
+  <body class="bg-bg-canvas text-fg font-sans min-h-screen">
+    <header class="bg-brand text-brand-foreground px-8 py-4 flex items-center gap-4">
+      <h1 class="text-subtitle2 font-semibold">fluent-tailwinds</h1>
+      <span class="text-caption opacity-90">Microsoft Fluent 2 tokens · Tailwind CSS v4</span>
+      <button id="theme-toggle" class="ml-auto rounded-control border-stroke px-3 py-1.5 text-body">
+        Đổi theme
+      </button>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-8 py-10 space-y-12">
+      <!-- Buttons -->
+      <section class="space-y-4">
+        <h2 class="text-heading text-title2">Buttons</h2>
+        <div class="flex flex-wrap gap-3">
+          <button class="bg-brand text-brand-foreground rounded-control px-4 py-2 motion-standard hover:bg-brand-hover active:bg-brand-pressed focus-ring">
+            Standard
+          </button>
+          <button class="surface-card px-4 py-2 motion-standard hover:bg-fill-input-hover focus-ring">
+            Surface
+          </button>
+          <button class="bg-brand-subtle text-brand rounded-control px-4 py-2 motion-standard hover:bg-brand-selected focus-ring">
+            Subtle
+          </button>
+          <button disabled class="bg-brand text-brand-foreground-disabled rounded-control px-4 py-2 opacity-60 cursor-not-allowed">
+            Disabled
+          </button>
+        </div>
+      </section>
+
+      <!-- Elevation -->
+      <section class="space-y-4">
+        <h2 class="text-heading text-title2">Elevation</h2>
+        <div class="flex flex-wrap gap-4">
+          <div class="elevation-4 rounded-card p-4 w-40 text-body">elevation-4</div>
+          <div class="elevation-8 rounded-card p-4 w-40 text-body">elevation-8</div>
+          <div class="elevation-16 rounded-card p-4 w-40 text-body">elevation-16</div>
+          <div class="elevation-28 rounded-card p-4 w-40 text-body">elevation-28</div>
+          <div class="elevation-64 rounded-card p-4 w-40 text-body">elevation-64</div>
+        </div>
+      </section>
+
+      <!-- Color roles -->
+      <section class="space-y-4">
+        <h2 class="text-heading text-title2">Color roles</h2>
+        <div class="grid grid-cols-4 gap-3">
+          <div class="surface-card p-3"><div class="h-12 rounded-surface bg-brand mb-2"></div><span class="text-caption2">brand</span></div>
+          <div class="surface-card p-3"><div class="h-12 rounded-surface bg-fg mb-2"></div><span class="text-caption2">fg</span></div>
+          <div class="surface-card p-3"><div class="h-12 rounded-surface bg-bg-bg-canvas border-stroke mb-2"></div><span class="text-caption2">bg-bg-canvas</span></div>
+          <div class="surface-card p-3"><div class="h-12 rounded-surface bg-critical mb-2"></div><span class="text-caption2">critical</span></div>
+          <div class="surface-card p-3"><div class="h-12 rounded-surface bg-success mb-2"></div><span class="text-caption2">success</span></div>
+          <div class="surface-card p-3"><div class="h-12 rounded-surface bg-warning mb-2"></div><span class="text-caption2">warning</span></div>
+          <div class="surface-card p-3"><div class="h-12 rounded-surface bg-info mb-2"></div><span class="text-caption2">info</span></div>
+          <div class="surface-card p-3"><div class="h-12 rounded-surface bg-stroke-default mb-2"></div><span class="text-caption2">stroke-default</span></div>
+        </div>
+      </section>
+
+      <!-- Typography -->
+      <section class="space-y-3">
+        <h2 class="text-heading text-title2">Typography</h2>
+        <p class="text-display-large">Display large</p>
+        <p class="text-display">Display</p>
+        <p class="text-large">Large</p>
+        <p class="text-title">Title</p>
+        <p class="text-title2">Title 2</p>
+        <p class="text-subtitle2">Subtitle 2</p>
+        <p class="text-subtitle">Subtitle</p>
+        <p class="text-body">Body — đoạn văn bình thường, dùng Segoe UI Variable.</p>
+        <p class="text-body2">Body 2</p>
+        <p class="text-caption">Caption</p>
+        <p class="text-caption2 text-tertiary">Caption 2 (tertiary)</p>
+      </section>
+
+      <!-- Motion -->
+      <section class="space-y-4">
+        <h2 class="text-heading text-title2">Motion</h2>
+        <div class="flex gap-3">
+          <div class="bg-brand text-brand-foreground rounded-control px-4 py-2 animate-fade-in">fade-in</div>
+          <div class="bg-brand text-brand-foreground rounded-control px-4 py-2 animate-slide-up">slide-up</div>
+          <div class="bg-brand text-brand-foreground rounded-control px-4 py-2 motion-gentle hover:bg-brand-hover">motion-gentle</div>
+          <div class="bg-brand text-brand-foreground rounded-control px-4 py-2 motion-emphasized hover:bg-brand-hover">emphasized</div>
+          <div class="bg-brand text-brand-foreground rounded-control px-4 py-2 animate-spin-slow">spin</div>
+        </div>
+      </section>
+
+      <!-- Shape + radius -->
+      <section class="space-y-4">
+        <h2 class="text-heading text-title2">Shape</h2>
+        <div class="flex gap-4 items-center">
+          <div class="w-16 h-16 bg-brand-subtle rounded-none border-stroke border-stroke-default"></div>
+          <div class="w-16 h-16 bg-brand-subtle rounded-xs"></div>
+          <div class="w-16 h-16 bg-brand-subtle rounded-sm"></div>
+          <div class="w-16 h-16 bg-brand-subtle rounded-md"></div>
+          <div class="w-16 h-16 bg-brand-subtle rounded-lg"></div>
+          <div class="w-16 h-16 bg-brand-subtle rounded-xl"></div>
+          <div class="w-16 h-16 bg-brand-subtle rounded-2xl"></div>
+          <div class="w-16 h-16 bg-brand-subtle rounded-circle"></div>
+        </div>
+      </section>
+      <!-- Z-index layers & motion durations -->
+      <section class="space-y-4">
+        <h2 class="text-heading text-title2">Z-index &amp; duration</h2>
+        <div class="flex gap-3">
+          <div class="surface-card p-3 z-flyout text-caption2">z-flyout</div>
+          <div class="surface-card p-3 z-modal text-caption2 relative">z-modal</div>
+          <div class="bg-brand-subtle text-brand rounded-control px-3 py-2 text-body duration-gentle motion-standard hover:opacity-80">duration-gentle</div>
+          <div class="bg-brand-subtle text-brand rounded-control px-3 py-2 text-body duration-ultra-fast motion-standard hover:opacity-80">duration-ultra-fast</div>
+          <div class="surface-acrylic p-3 text-caption2">surface-acrylic</div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const root = document.documentElement;
+      const toggle = document.getElementById("theme-toggle");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+      const apply = (d) => {
+        root.classList.toggle("dark", d);
+        root.dataset.theme = d ? "dark" : "light";
+      };
+      apply(prefersDark.matches);
+      prefersDark.addEventListener("change", (e) => apply(e.matches));
+      toggle.addEventListener("click", () => apply(!root.classList.contains("dark")));
+    </script>
+  </body>
+</html>
