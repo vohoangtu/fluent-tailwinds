@@ -44,7 +44,8 @@ const expected = [
   "elevation-64",
   "shadow-4",
   "shadow-28",
-  // shape
+  // opacity & shape
+  "opacity-disabled",
   "rounded-control",
   "rounded-card",
   "rounded-surface",

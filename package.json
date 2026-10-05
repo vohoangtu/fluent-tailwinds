@@ -1,6 +1,6 @@
 {
   "name": "fluent-tailwinds",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Microsoft Fluent 2 design tokens for Tailwind CSS v4 — colors, elevation, motion, shape and typography as Tailwind utilities.",
   "license": "MIT",
   "keywords": [

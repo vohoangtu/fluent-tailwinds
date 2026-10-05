@@ -104,6 +104,9 @@
         motion and typography ramps.
      ====================================================================== */
 
+  /* ---- Opacity ----------------------------------------------------------- */
+  --opacity-disabled: 0.38;
+
   /* ---- Corner radius (Fluent corner radius ramp) ------------------------ */
   --radius-none: 0px;
   --radius-xs: 2px;

@@ -174,6 +174,87 @@ mq.addEventListener("change", e => apply(e.matches));
 
 ---
 
+## Component Recipes (Fluent 2)
+
+Thay vì nhồi nhét CSS class tĩnh phức tạp làm phình bundle, `fluent-tailwinds` đi theo triết lý **utility-first**: kết hợp trực tiếp các design tokens để tạo ra các component đạt chuẩn 5 trạng thái tương tác (*Rest, Hover, Active/Pressed, Disabled, Focus-Visible*).
+
+### 1. Buttons (Primary, Outline, Subtle)
+```html
+<!-- Primary Button -->
+<button class="bg-brand text-brand-foreground rounded-control px-4 py-2 text-body font-semibold motion-standard hover:bg-brand-hover active:bg-brand-pressed focus-visible:focus-ring disabled:bg-bg-disabled disabled:text-fg-disabled disabled:opacity-disabled disabled:cursor-not-allowed">
+  Primary Button
+</button>
+
+<!-- Outline Button -->
+<button class="border border-stroke-default bg-transparent text-fg rounded-control px-4 py-2 text-body font-semibold motion-standard hover:bg-fill-input-hover active:bg-fill-input-disabled focus-visible:focus-ring disabled:opacity-disabled disabled:cursor-not-allowed">
+  Outline Button
+</button>
+
+<!-- Subtle Button -->
+<button class="bg-brand-subtle text-brand rounded-control px-4 py-2 text-body font-semibold motion-standard hover:bg-brand-selected active:bg-brand-selected focus-visible:focus-ring disabled:opacity-disabled disabled:cursor-not-allowed">
+  Subtle Button
+</button>
+```
+
+### 2. Input Fields
+```html
+<label class="block text-body font-semibold text-fg">Tên tài khoản</label>
+<input
+  type="text"
+  placeholder="Nhập tên đăng nhập..."
+  class="w-full bg-fill-input text-fg placeholder:text-fg-tertiary border border-stroke-default rounded-control px-3 py-2 text-body motion-standard hover:border-stroke-outline focus-visible:border-brand focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand disabled:bg-fill-input-disabled disabled:text-fg-disabled disabled:opacity-disabled disabled:cursor-not-allowed"
+/>
+```
+
+### 3. Checkbox & Toggle / Switch
+```html
+<!-- Checkbox -->
+<label class="flex items-center gap-3 cursor-pointer select-none">
+  <input type="checkbox" class="h-4 w-4 rounded-xs border border-stroke-default bg-fill-input accent-brand focus-visible:focus-ring hover:border-stroke-outline transition-colors motion-standard" />
+  <span class="text-body text-fg">Ghi nhớ đăng nhập</span>
+</label>
+
+<!-- Toggle / Switch -->
+<label class="relative flex items-center justify-between cursor-pointer select-none">
+  <span class="text-body text-fg">Đồng bộ đám mây</span>
+  <div class="relative inline-flex items-center">
+    <input type="checkbox" checked class="sr-only peer" />
+    <div class="w-11 h-6 bg-fill-input border border-stroke-default rounded-circle peer peer-checked:bg-brand peer-checked:border-brand peer-focus-visible:focus-ring transition-colors motion-standard"></div>
+    <div class="absolute left-1 top-1 w-4 h-4 rounded-circle bg-fg-secondary peer-checked:translate-x-5 peer-checked:bg-brand-foreground transition-all motion-standard"></div>
+  </div>
+</label>
+```
+
+### 4. Badges (Status, Tint, Filled)
+```html
+<span class="inline-flex items-center gap-1.5 rounded-circle px-2.5 py-0.5 text-caption font-semibold bg-brand text-brand-foreground">Brand Filled</span>
+<span class="inline-flex items-center gap-1.5 rounded-circle px-2.5 py-0.5 text-caption font-semibold bg-brand-subtle text-brand">Brand Tint</span>
+<span class="inline-flex items-center gap-1.5 rounded-circle px-2.5 py-0.5 text-caption font-semibold bg-success-bg text-success border border-success-border">● Hoạt động</span>
+<span class="inline-flex items-center gap-1.5 rounded-circle px-2.5 py-0.5 text-caption font-semibold bg-critical-bg text-critical border border-critical-border">✕ Nguy cấp</span>
+```
+
+### 5. Surfaces & Overlays (Card, Flyout, Dialog)
+```html
+<!-- Interactive Card (elevation-4 -> hover elevation-8) -->
+<div class="surface-card elevation-4 hover:elevation-8 transition-shadow motion-standard rounded-card p-6 border border-stroke-default">
+  ...
+</div>
+
+<!-- Acrylic Flyout / Popover -->
+<div class="surface-acrylic elevation-16 rounded-overlay p-6 border border-stroke-subtle shadow-16">
+  ...
+</div>
+
+<!-- Modal Dialog with Backdrop -->
+<div class="fixed inset-0 bg-black/40 backdrop-blur-xs z-modal flex items-center justify-center p-4">
+  <div class="surface-card elevation-28 rounded-card border border-stroke-default max-w-md w-full p-6 shadow-28 animate-slide-up">
+    ...
+  </div>
+</div>
+```
+
+---
+
 ## Tuỳ biến token & Multi-Brand
 
 ### 🎨 Multi-Brand Customization

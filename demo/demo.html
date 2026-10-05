@@ -3,40 +3,276 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>fluent-tailwinds — Fluent 2 tokens demo</title>
+    <title>fluent-tailwinds — Fluent 2 Component Recipes & Tokens Demo</title>
     <link rel="stylesheet" href="./demo-output.css" />
     <style>
-      :root { color-scheme: light dark; }
+      :root {
+        color-scheme: light dark;
+      }
     </style>
   </head>
   <body class="bg-bg-canvas text-fg font-sans min-h-screen">
-    <header class="bg-brand text-brand-foreground px-8 py-4 flex items-center gap-4">
-      <h1 class="text-subtitle2 font-semibold">fluent-tailwinds</h1>
-      <span class="text-caption opacity-90">Microsoft Fluent 2 tokens · Tailwind CSS v4</span>
-      <button id="theme-toggle" class="ml-auto rounded-control border-stroke px-3 py-1.5 text-body">
-        Đổi theme
-      </button>
+    <!-- Header -->
+    <header class="bg-brand text-brand-foreground px-8 py-4 flex items-center gap-4 sticky top-0 z-navigation shadow-4">
+      <div class="flex items-center gap-3">
+        <div class="w-7 h-7 rounded-xs bg-brand-foreground/20 flex items-center justify-center font-bold text-subtitle">
+          F
+        </div>
+        <div>
+          <h1 class="text-subtitle font-semibold leading-tight">fluent-tailwinds</h1>
+          <span class="text-caption opacity-90">Microsoft Fluent 2 Recipes &amp; Design Tokens</span>
+        </div>
+      </div>
+      <div class="ml-auto flex items-center gap-3">
+        <span class="text-caption bg-brand-subtle text-brand px-2.5 py-0.5 rounded-circle font-medium">v0.2.0-rc</span>
+        <button
+          id="theme-toggle"
+          class="rounded-control border border-stroke-inverse bg-brand-subtle text-brand px-3 py-1.5 text-body font-semibold hover:bg-brand-selected focus-visible:focus-ring motion-standard"
+        >
+          🌙 Đổi Theme Root
+        </button>
+      </div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-8 py-10 space-y-12">
-      <!-- Buttons -->
-      <section class="space-y-4">
-        <h2 class="text-heading text-title2">Buttons</h2>
-        <div class="flex flex-wrap gap-3">
-          <button class="bg-brand text-brand-foreground rounded-control px-4 py-2 motion-standard hover:bg-brand-hover active:bg-brand-pressed focus-ring">
-            Standard
-          </button>
-          <button class="surface-card px-4 py-2 motion-standard hover:bg-fill-input-hover focus-ring">
-            Surface
-          </button>
-          <button class="bg-brand-subtle text-brand rounded-control px-4 py-2 motion-standard hover:bg-brand-selected focus-ring">
-            Subtle
-          </button>
-          <button disabled class="bg-brand text-brand-foreground-disabled rounded-control px-4 py-2 opacity-60 cursor-not-allowed">
-            Disabled
-          </button>
+    <main class="max-w-5xl mx-auto px-8 py-10 space-y-16">
+
+      <!-- =========== FT-01: COMMON CONTROLS RECIPES =========== -->
+      <section class="space-y-6">
+        <div class="border-b border-stroke-default pb-3">
+          <span class="text-caption font-semibold text-brand tracking-wider uppercase">Sprint 2 · FT-01</span>
+          <h2 class="text-heading text-title">Common Controls Recipes</h2>
+          <p class="text-body text-fg-secondary mt-1">Mẫu component chuẩn Fluent 2 — 5 trạng thái tương tác: Rest, Hover, Active/Pressed, Disabled, Focus-Visible.</p>
+        </div>
+
+        <!-- 1. Buttons Matrix -->
+        <div class="surface-card rounded-card border border-stroke-default p-6 space-y-6 elevation-4">
+          <div>
+            <h3 class="text-subtitle2 font-semibold">1. Buttons (Primary, Outline, Subtle)</h3>
+            <p class="text-caption text-fg-secondary">Nhấn <kbd class="px-1.5 py-0.5 bg-fill-input border border-stroke-default rounded-xs font-mono text-caption2">Tab</kbd> để kiểm tra Focus-Visible viền kép (WCAG 2.4.11).</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Primary -->
+            <div class="space-y-3">
+              <span class="text-caption font-semibold text-fg-secondary">Primary Button</span>
+              <div class="space-y-2">
+                <div>
+                  <button class="w-full bg-brand text-brand-foreground rounded-control px-4 py-2 text-body font-semibold motion-standard hover:bg-brand-hover active:bg-brand-pressed focus-visible:focus-ring">Primary Rest / Interactive</button>
+                  <span class="text-caption2 text-fg-tertiary">Rest · Hover · Active · Focus</span>
+                </div>
+                <div>
+                  <button disabled class="w-full bg-bg-disabled text-fg-disabled border border-stroke-subtle rounded-control px-4 py-2 text-body font-semibold opacity-disabled cursor-not-allowed pointer-events-none">Primary Disabled</button>
+                  <span class="text-caption2 text-fg-tertiary">Disabled state</span>
+                </div>
+              </div>
+            </div>
+            <!-- Outline -->
+            <div class="space-y-3">
+              <span class="text-caption font-semibold text-fg-secondary">Outline Button</span>
+              <div class="space-y-2">
+                <div>
+                  <button class="w-full border border-stroke-default bg-transparent text-fg rounded-control px-4 py-2 text-body font-semibold motion-standard hover:bg-fill-input-hover active:bg-fill-input-disabled focus-visible:focus-ring">Outline Rest / Interactive</button>
+                  <span class="text-caption2 text-fg-tertiary">Rest · Hover · Active · Focus</span>
+                </div>
+                <div>
+                  <button disabled class="w-full border border-stroke-subtle bg-transparent text-fg-disabled rounded-control px-4 py-2 text-body font-semibold opacity-disabled cursor-not-allowed pointer-events-none">Outline Disabled</button>
+                  <span class="text-caption2 text-fg-tertiary">Disabled state</span>
+                </div>
+              </div>
+            </div>
+            <!-- Subtle -->
+            <div class="space-y-3">
+              <span class="text-caption font-semibold text-fg-secondary">Subtle Button</span>
+              <div class="space-y-2">
+                <div>
+                  <button class="w-full bg-brand-subtle text-brand rounded-control px-4 py-2 text-body font-semibold motion-standard hover:bg-brand-selected active:bg-brand-selected focus-visible:focus-ring">Subtle Rest / Interactive</button>
+                  <span class="text-caption2 text-fg-tertiary">Rest · Hover · Active · Focus</span>
+                </div>
+                <div>
+                  <button disabled class="w-full bg-transparent text-fg-disabled rounded-control px-4 py-2 text-body font-semibold opacity-disabled cursor-not-allowed pointer-events-none">Subtle Disabled</button>
+                  <span class="text-caption2 text-fg-tertiary">Disabled state</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Inputs & Forms -->
+        <div class="surface-card rounded-card border border-stroke-default p-6 space-y-6 elevation-4">
+          <div>
+            <h3 class="text-subtitle2 font-semibold">2. Input Fields</h3>
+            <p class="text-caption text-fg-secondary">Input có border tương tác, focus ring chuẩn Fluent.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="space-y-1.5">
+              <label for="input-regular" class="block text-body font-semibold text-fg">Tên tài khoản</label>
+              <input id="input-regular" type="text" placeholder="Nhập tên đăng nhập..." class="w-full bg-fill-input text-fg placeholder:text-fg-tertiary border border-stroke-default rounded-control px-3 py-2 text-body motion-standard hover:border-stroke-outline focus-visible:border-brand focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand" />
+              <span class="text-caption2 text-fg-tertiary block">Trạng thái thường / Tương tác</span>
+            </div>
+            <div class="space-y-1.5">
+              <label for="input-filled" class="block text-body font-semibold text-fg">Email liên hệ</label>
+              <input id="input-filled" type="email" value="developer@company.com" class="w-full bg-fill-input text-fg border border-stroke-default rounded-control px-3 py-2 text-body motion-standard hover:border-stroke-outline focus-visible:border-brand focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand" />
+              <span class="text-caption2 text-success block">✓ Hợp lệ</span>
+            </div>
+            <div class="space-y-1.5">
+              <label for="input-disabled" class="block text-body font-semibold text-fg-disabled">Mã định danh (Khóa)</label>
+              <input id="input-disabled" type="text" disabled value="SYS-TOKEN-DISABLED" class="w-full bg-fill-input-disabled text-fg-disabled border border-stroke-subtle rounded-control px-3 py-2 text-body cursor-not-allowed opacity-disabled" />
+              <span class="text-caption2 text-fg-tertiary block">Không cho phép chỉnh sửa</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Checkboxes & Switches -->
+        <div class="surface-card rounded-card border border-stroke-default p-6 space-y-6 elevation-4">
+          <div>
+            <h3 class="text-subtitle2 font-semibold">3. Checkbox &amp; Toggle / Switch</h3>
+            <p class="text-caption text-fg-secondary">Control dạng bật/tắt theo Fluent 2.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Checkboxes -->
+            <div class="space-y-4">
+              <span class="text-caption font-semibold text-fg-secondary">Checkbox Controls</span>
+              <div class="space-y-3">
+                <label class="flex items-center gap-3 cursor-pointer select-none">
+                  <input type="checkbox" checked class="h-4 w-4 rounded-xs border border-stroke-default bg-fill-input accent-brand focus-visible:focus-ring hover:border-stroke-outline transition-colors motion-standard cursor-pointer" />
+                  <span class="text-body text-fg">Ghi nhớ đăng nhập (Đã chọn)</span>
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer select-none">
+                  <input type="checkbox" class="h-4 w-4 rounded-xs border border-stroke-default bg-fill-input accent-brand focus-visible:focus-ring hover:border-stroke-outline transition-colors motion-standard cursor-pointer" />
+                  <span class="text-body text-fg">Nhận thông báo cập nhật qua email</span>
+                </label>
+                <label class="flex items-center gap-3 cursor-not-allowed opacity-disabled select-none">
+                  <input type="checkbox" disabled checked class="h-4 w-4 rounded-xs border border-stroke-subtle bg-fill-input-disabled accent-brand cursor-not-allowed" />
+                  <span class="text-body text-fg-disabled">Quyền quản trị viên (Bị khóa)</span>
+                </label>
+              </div>
+            </div>
+            <!-- Toggle Switches -->
+            <div class="space-y-4">
+              <span class="text-caption font-semibold text-fg-secondary">Toggle / Switch Controls</span>
+              <div class="space-y-3">
+                <label class="relative flex items-center justify-between cursor-pointer select-none">
+                  <span class="text-body text-fg">Đồng bộ đám mây</span>
+                  <div class="relative inline-flex items-center">
+                    <input type="checkbox" checked class="sr-only peer" />
+                    <div class="w-11 h-6 bg-fill-input border border-stroke-default rounded-circle peer peer-checked:bg-brand peer-checked:border-brand peer-focus-visible:focus-ring transition-colors motion-standard"></div>
+                    <div class="absolute left-1 top-1 w-4 h-4 rounded-circle bg-fg-secondary peer-checked:translate-x-5 peer-checked:bg-brand-foreground transition-all motion-standard"></div>
+                  </div>
+                </label>
+                <label class="relative flex items-center justify-between cursor-pointer select-none">
+                  <span class="text-body text-fg">Chế độ tiết kiệm pin</span>
+                  <div class="relative inline-flex items-center">
+                    <input type="checkbox" class="sr-only peer" />
+                    <div class="w-11 h-6 bg-fill-input border border-stroke-default rounded-circle peer peer-checked:bg-brand peer-checked:border-brand peer-focus-visible:focus-ring transition-colors motion-standard"></div>
+                    <div class="absolute left-1 top-1 w-4 h-4 rounded-circle bg-fg-secondary peer-checked:translate-x-5 peer-checked:bg-brand-foreground transition-all motion-standard"></div>
+                  </div>
+                </label>
+                <label class="relative flex items-center justify-between cursor-not-allowed select-none opacity-disabled">
+                  <span class="text-body text-fg-disabled">Tính năng thử nghiệm (Disabled)</span>
+                  <div class="relative inline-flex items-center">
+                    <input type="checkbox" disabled class="sr-only peer" />
+                    <div class="w-11 h-6 bg-fill-input-disabled border border-stroke-subtle rounded-circle transition-colors motion-standard"></div>
+                    <div class="absolute left-1 top-1 w-4 h-4 rounded-circle bg-fg-disabled transition-all motion-standard"></div>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Badges & Tags -->
+        <div class="surface-card rounded-card border border-stroke-default p-6 space-y-4 elevation-4">
+          <div>
+            <h3 class="text-subtitle2 font-semibold">4. Badges (Filled, Tint, Status)</h3>
+            <p class="text-caption text-fg-secondary">Phù hiệu trạng thái với độ tương phản WCAG AA.</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-3">
+            <span class="inline-flex items-center gap-1.5 rounded-circle px-2.5 py-0.5 text-caption font-semibold bg-brand text-brand-foreground">Brand Filled</span>
+            <span class="inline-flex items-center gap-1.5 rounded-circle px-2.5 py-0.5 text-caption font-semibold bg-brand-subtle text-brand">Brand Tint</span>
+            <span class="inline-flex items-center gap-1.5 rounded-circle px-2.5 py-0.5 text-caption font-semibold bg-success-bg text-success border border-success-border">● Hoạt động</span>
+            <span class="inline-flex items-center gap-1.5 rounded-circle px-2.5 py-0.5 text-caption font-semibold bg-warning-bg text-warning border border-warning-border">▲ Chú ý</span>
+            <span class="inline-flex items-center gap-1.5 rounded-circle px-2.5 py-0.5 text-caption font-semibold bg-critical-bg text-critical border border-critical-border">✕ Nguy cấp</span>
+            <span class="inline-flex items-center gap-1.5 rounded-circle px-2.5 py-0.5 text-caption font-semibold bg-info-bg text-info border border-info-border">ℹ Thông tin</span>
+            <span class="inline-flex items-center gap-1.5 rounded-circle px-2.5 py-0.5 text-caption font-semibold border border-stroke-default text-fg-secondary">Outline Neutral</span>
+          </div>
         </div>
       </section>
+
+      <!-- =========== FT-02: SURFACES & OVERLAYS =========== -->
+      <section class="space-y-6">
+        <div class="border-b border-stroke-default pb-3">
+          <span class="text-caption font-semibold text-brand tracking-wider uppercase">Sprint 2 · FT-02</span>
+          <h2 class="text-heading text-title">Surfaces &amp; Overlays Recipes</h2>
+          <p class="text-body text-fg-secondary mt-1">Card tương tác, Acrylic Flyout, Dialog modal — elevation ramp + backdrop.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Card -->
+          <div class="surface-card elevation-4 hover:elevation-8 transition-shadow motion-standard rounded-card p-6 border border-stroke-default flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-caption font-semibold text-brand uppercase">Fluent Card</span>
+                <span class="text-caption2 bg-brand-subtle text-brand px-2 py-0.5 rounded-xs">elevation-4</span>
+              </div>
+              <h4 class="text-subtitle font-semibold">Tương tác Hover Elevation</h4>
+              <p class="text-body text-fg-secondary">Card tự nổi lên elevation-8 khi rê chuột với motion mượt mà.</p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-stroke-subtle flex items-center justify-between">
+              <span class="text-caption2 text-fg-tertiary">Chi tiết</span>
+              <button class="bg-brand text-brand-foreground rounded-control px-3 py-1.5 text-caption font-semibold hover:bg-brand-hover focus-visible:focus-ring motion-standard">Xem ngay</button>
+            </div>
+          </div>
+          <!-- Flyout / Popover -->
+          <div class="surface-acrylic elevation-16 rounded-overlay p-6 border border-stroke-subtle flex flex-col justify-between shadow-16">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-caption font-semibold text-fg uppercase">Acrylic Flyout</span>
+                <span class="text-caption2 bg-fill-input border border-stroke-default px-2 py-0.5 rounded-xs">z-flyout</span>
+              </div>
+              <h4 class="text-subtitle font-semibold">Chất liệu Acrylic mờ</h4>
+              <p class="text-body text-fg-secondary">backdrop-filter blur 30px kết hợp viền phân tách ánh sáng.</p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-stroke-subtle flex items-center gap-2">
+              <button class="bg-brand text-brand-foreground rounded-control px-3 py-1.5 text-caption font-semibold hover:bg-brand-hover focus-visible:focus-ring motion-standard">Chấp nhận</button>
+              <button class="border border-stroke-default rounded-control px-3 py-1.5 text-caption font-semibold text-fg hover:bg-fill-input-hover focus-visible:focus-ring motion-standard">Bỏ qua</button>
+            </div>
+          </div>
+          <!-- Dialog trigger -->
+          <div class="surface-card elevation-4 rounded-card p-6 border border-stroke-default flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-caption font-semibold text-fg uppercase">Modal Dialog</span>
+                <span class="text-caption2 bg-fill-input border border-stroke-default px-2 py-0.5 rounded-xs">z-modal</span>
+              </div>
+              <h4 class="text-subtitle font-semibold">Hộp thoại xác nhận</h4>
+              <p class="text-body text-fg-secondary">Dialog cấp elevation-28 với lớp phủ backdrop blur + Escape close.</p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-stroke-subtle">
+              <button id="open-dialog-btn" class="w-full bg-brand text-brand-foreground rounded-control px-4 py-2 text-body font-semibold hover:bg-brand-hover focus-visible:focus-ring motion-standard">Mở Demo Dialog</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dialog Overlay -->
+        <div id="modal-dialog-overlay" class="fixed inset-0 bg-black/40 backdrop-blur-xs z-modal flex items-center justify-center p-4 hidden" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+          <div class="surface-card elevation-28 rounded-card border border-stroke-default max-w-md w-full p-6 shadow-28 animate-slide-up space-y-4">
+            <div class="flex items-center justify-between">
+              <h3 id="dialog-title" class="text-subtitle2 font-semibold">Xác nhận hành động</h3>
+              <button id="close-dialog-btn" aria-label="Đóng dialog" class="rounded-control p-1 text-fg-secondary hover:text-fg hover:bg-fill-input-hover focus-visible:focus-ring motion-standard">✕</button>
+            </div>
+            <p class="text-body text-fg-secondary">Fluent 2 Dialog recipe — bề mặt <code class="text-caption bg-fill-input px-1 py-0.5 rounded-xs border border-stroke-default font-mono">elevation-28</code> + viền thích ứng theme.</p>
+            <div class="flex items-center justify-end gap-3 pt-4 border-t border-stroke-subtle">
+              <button id="cancel-dialog-btn" class="border border-stroke-default text-fg rounded-control px-4 py-1.5 text-body font-semibold hover:bg-fill-input-hover focus-visible:focus-ring motion-standard">Hủy bỏ</button>
+              <button id="confirm-dialog-btn" class="bg-brand text-brand-foreground rounded-control px-4 py-1.5 text-body font-semibold hover:bg-brand-hover active:bg-brand-pressed focus-visible:focus-ring motion-standard">Xác nhận</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========== FOUNDATIONS =========== -->
+      <section class="space-y-6">
+        <div class="border-b border-stroke-default pb-3">
+          <span class="text-caption font-semibold text-fg-secondary tracking-wider uppercase">Foundations</span>
+          <h2 class="text-heading text-title">Core Tokens &amp; Ramps</h2>
+        </div>
 
       <!-- Elevation -->
       <section class="space-y-4">
@@ -145,6 +381,35 @@
       apply(prefersDark.matches);
       prefersDark.addEventListener("change", (e) => apply(e.matches));
       toggle.addEventListener("click", () => apply(!root.classList.contains("dark")));
+      // Dialog Modal Logic
+      const openDialogBtn = document.getElementById("open-dialog-btn");
+      const closeDialogBtn = document.getElementById("close-dialog-btn");
+      const cancelDialogBtn = document.getElementById("cancel-dialog-btn");
+      const confirmDialogBtn = document.getElementById("confirm-dialog-btn");
+      const modalOverlay = document.getElementById("modal-dialog-overlay");
+
+      const openModal = () => {
+        modalOverlay.classList.remove("hidden");
+        closeDialogBtn?.focus();
+      };
+      const closeModal = () => {
+        modalOverlay.classList.add("hidden");
+        openDialogBtn?.focus();
+      };
+
+      openDialogBtn?.addEventListener("click", openModal);
+      closeDialogBtn?.addEventListener("click", closeModal);
+      cancelDialogBtn?.addEventListener("click", closeModal);
+      confirmDialogBtn?.addEventListener("click", closeModal);
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !modalOverlay.classList.contains("hidden")) {
+          closeModal();
+        }
+      });
+      modalOverlay?.addEventListener("click", (e) => {
+        if (e.target === modalOverlay) closeModal();
+      });
     </script>
   </body>
 </html>
