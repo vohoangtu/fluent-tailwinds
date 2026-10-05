@@ -21,7 +21,7 @@
     "./index.css": "./index.css",
     "./package.json": "./package.json"
   },
-  "files": ["index.css", "README.md", "LICENSE"],
+  "files": ["index.css", "README.md", "LICENSE", "CHANGELOG.md"],
   "sideEffects": ["*.css"],
   "scripts": {
     "demo:build": "tailwindcss -i demo/demo.css -o demo/demo-output.css",
