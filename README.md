@@ -117,6 +117,17 @@ Font: `font-sans` (Segoe UI Variable), `font-display`, `font-mono`
 
 Semantic: `text-heading` (display font, weight 600), `text-body-strong`, `text-secondary`, `text-tertiary`.
 
+#### ⚠️ Typography Note
+Importing `fluent-tailwinds` sets Tailwind's default `--font-sans` to `"Segoe UI Variable", ...`. 
+If you want to keep your project's custom sans font (e.g., Inter, Roboto), override it in your CSS after the import:
+```css
+@import "fluent-tailwinds";
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-fluent: "Segoe UI Variable", sans-serif; /* use as font-fluent */
+}
+```
+
 ### Z-index
 
 `z-navigation` `z-flyout` `z-overlay` `z-modal` `z-popover` `z-toast` `z-tooltip`
@@ -137,8 +148,13 @@ Semantic: `text-heading` (display font, weight 600), `text-body-strong`, `text-s
 Mặc định là light. Chuyển theme bằng **một trong hai** cách:
 
 ```html
+<!-- Cấp toàn trang -->
 <html class="dark">
 <html data-theme="dark">
+
+<!-- Hoặc cấp container cục bộ (Scoped / Nested theming) -->
+<aside class="dark">...</aside>
+<div data-theme="dark">...</div>
 ```
 
 ```js
@@ -158,16 +174,27 @@ mq.addEventListener("change", e => apply(e.matches));
 
 ---
 
-## Tuỳ biến token
+## Tuỳ biến token & Multi-Brand
 
-Ghi đè sau khi import:
+### 🎨 Multi-Brand Customization
+Fluent 2 hỗ trợ các bảng màu riêng cho từng sản phẩm của Microsoft (Teams tím, Excel xanh lá, PowerPoint cam, v.v.). Bạn có thể dễ dàng chuyển đổi dải màu thương hiệu bằng cách override `--color-brand*`:
 
 ```css
 @import "tailwindcss";
 @import "fluent-tailwinds";
 
 @theme {
-  --color-brand: #c239b3;          /* thương hiệu riêng, vẫn giữ light/dark token còn lại */
+  --color-brand: #5c2d91;          /* Teams Purple */
+  --color-brand-hover: #4a2475;
+  --color-brand-pressed: #3b1c5e;
+  --color-brand-subtle: #f3edf8;
+}
+```
+
+### Tuỳ biến Radius & Z-Index
+
+```css
+@theme {
   --radius-card: 12px;
 }
 

@@ -113,6 +113,9 @@ const darkBlock = css.slice(css.indexOf("html.dark"));
 const missingDark = darkTokens.filter((t) => !darkBlock.includes(t));
 
 const problems = [];
+if (!css.includes(":is(html.dark, html[data-theme=\"dark\"], .dark, [data-theme=\"dark\"])")) {
+  problems.push("selector dark theme chưa hỗ trợ scoped container (:is(.dark, [data-theme=\"dark\"]))");
+}
 if (missing.length) problems.push(`thiếu utility: ${missing.join(", ")}`);
 if (missingDark.length) problems.push(`dark theme thiếu token: ${missingDark.join(", ")}`);
 

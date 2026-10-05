@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - **Design Tokens**: Microsoft Fluent 2 design token mapping for Tailwind CSS v4.
 - **Colors**: Brand, neutral foreground/background/fill/stroke, and status palettes with automatic light/dark mode support.
+- **Theming**: Full-document and scoped container dark theming via `:is(html.dark, html[data-theme="dark"], .dark, [data-theme="dark"])`.
 - **Elevation**: Shadow ramp (`shadow-2` to `shadow-64`) and composite elevation classes (`elevation-4` to `elevation-64`).
 - **Shapes**: Fluent border radius scales (`rounded-xs` to `rounded-circle`, semantic `rounded-control`, `rounded-card`, `rounded-surface`) and stroke widths.
 - **Motion**: Fluent transition durations (`duration-ultra-fast` to `duration-slower`), easings (`ease-standard`, `ease-winui`, etc.), presets (`motion-standard`, `motion-gentle`), and keyframe animations.

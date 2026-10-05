@@ -204,12 +204,12 @@
 
 /* ==========================================================================
    3. DARK THEME — overrides the same custom properties.
-   Selectors use `html.dark` / `html[data-theme="dark"]` (specificity 0,1,1)
-   so they beat the `:root` block Tailwind emits from @theme.
+   Selectors use `:is(html.dark, html[data-theme="dark"], .dark, [data-theme="dark"])` (specificity 0,1,1)
+   so they beat the `:root` block Tailwind emits from @theme, supporting both
+   document-level and scoped container dark modes.
    ========================================================================== */
 
-html.dark,
-html[data-theme="dark"] {
+:is(html.dark, html[data-theme="dark"], .dark, [data-theme="dark"]) {
   /* Brand */
   --color-brand: #4cb0ff;
   --color-brand-hover: #62abef;

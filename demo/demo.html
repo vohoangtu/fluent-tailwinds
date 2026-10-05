@@ -118,6 +118,20 @@
           <div class="surface-acrylic p-3 text-caption2">surface-acrylic</div>
         </div>
       </section>
+      <!-- Scoped Dark Theme (Nested) -->
+      <section class="space-y-4">
+        <h2 class="text-heading text-title2">Scoped / Nested Dark Theme</h2>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="p-4 rounded-card border border-stroke-default bg-bg-canvas text-fg">
+            <span class="text-caption text-secondary">Light container (Inherited)</span>
+            <p class="text-body mt-1">Nội dung theo theme mặc định của trang.</p>
+          </div>
+          <div class="dark p-4 rounded-card border border-stroke-default bg-bg-canvas text-fg">
+            <span class="text-caption text-secondary">Scoped dark container (.dark)</span>
+            <p class="text-body text-brand mt-1">Tự động nhận dark token độc lập.</p>
+          </div>
+        </div>
+      </section>
     </main>
 
     <script>
