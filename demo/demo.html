@@ -125,53 +125,72 @@
         <div class="surface-card rounded-card border border-stroke-default p-6 space-y-6 elevation-4">
           <div>
             <h3 class="text-subtitle2 font-semibold">3. Checkbox &amp; Toggle / Switch</h3>
-            <p class="text-caption text-fg-secondary">Control dạng bật/tắt theo Fluent 2.</p>
+            <p class="text-caption text-fg-secondary">Control dạng bật/tắt theo chuẩn Fluent 2 (custom styling với appearance-none và peer modifiers).</p>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- Checkboxes -->
             <div class="space-y-4">
-              <span class="text-caption font-semibold text-fg-secondary">Checkbox Controls</span>
+              <span class="text-caption font-semibold text-fg-secondary">Checkbox Controls (appearance-none)</span>
               <div class="space-y-3">
-                <label class="flex items-center gap-3 cursor-pointer select-none">
-                  <input type="checkbox" checked class="h-4 w-4 rounded-xs border border-stroke-default bg-fill-input accent-brand focus-visible:focus-ring hover:border-stroke-outline transition-colors motion-standard cursor-pointer" />
+                <label class="flex items-center gap-3 cursor-pointer select-none group">
+                  <div class="relative flex items-center justify-center">
+                    <input type="checkbox" checked class="peer appearance-none h-4 w-4 rounded-xs border border-stroke-default bg-fill-input checked:bg-brand checked:border-brand hover:border-stroke-outline focus-visible:focus-ring transition-colors motion-standard cursor-pointer" />
+                    <svg class="pointer-events-none absolute h-3 w-3 stroke-brand-foreground opacity-0 peer-checked:opacity-100 transition-opacity motion-standard" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </div>
                   <span class="text-body text-fg">Ghi nhớ đăng nhập (Đã chọn)</span>
                 </label>
-                <label class="flex items-center gap-3 cursor-pointer select-none">
-                  <input type="checkbox" class="h-4 w-4 rounded-xs border border-stroke-default bg-fill-input accent-brand focus-visible:focus-ring hover:border-stroke-outline transition-colors motion-standard cursor-pointer" />
+
+                <label class="flex items-center gap-3 cursor-pointer select-none group">
+                  <div class="relative flex items-center justify-center">
+                    <input type="checkbox" class="peer appearance-none h-4 w-4 rounded-xs border border-stroke-default bg-fill-input checked:bg-brand checked:border-brand hover:border-stroke-outline focus-visible:focus-ring transition-colors motion-standard cursor-pointer" />
+                    <svg class="pointer-events-none absolute h-3 w-3 stroke-brand-foreground opacity-0 peer-checked:opacity-100 transition-opacity motion-standard" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </div>
                   <span class="text-body text-fg">Nhận thông báo cập nhật qua email</span>
                 </label>
-                <label class="flex items-center gap-3 cursor-not-allowed opacity-disabled select-none">
-                  <input type="checkbox" disabled checked class="h-4 w-4 rounded-xs border border-stroke-subtle bg-fill-input-disabled accent-brand cursor-not-allowed" />
-                  <span class="text-body text-fg-disabled">Quyền quản trị viên (Bị khóa)</span>
+
+                <label class="flex items-center gap-3 cursor-not-allowed opacity-disabled select-none group">
+                  <div class="relative flex items-center justify-center">
+                    <input type="checkbox" disabled checked class="peer appearance-none h-4 w-4 rounded-xs border border-stroke-subtle bg-fill-input-disabled checked:bg-brand checked:border-brand cursor-not-allowed opacity-disabled" />
+                    <svg class="pointer-events-none absolute h-3 w-3 stroke-brand-foreground opacity-100" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </div>
+                  <span class="text-body text-fg-disabled cursor-not-allowed">Quyền quản trị viên (Bị khóa)</span>
                 </label>
               </div>
             </div>
             <!-- Toggle Switches -->
             <div class="space-y-4">
-              <span class="text-caption font-semibold text-fg-secondary">Toggle / Switch Controls</span>
+              <span class="text-caption font-semibold text-fg-secondary">Toggle / Switch Controls (peer-disabled)</span>
               <div class="space-y-3">
-                <label class="relative flex items-center justify-between cursor-pointer select-none">
+                <label class="relative flex items-center justify-between cursor-pointer select-none group">
                   <span class="text-body text-fg">Đồng bộ đám mây</span>
                   <div class="relative inline-flex items-center">
                     <input type="checkbox" checked class="sr-only peer" />
-                    <div class="w-11 h-6 bg-fill-input border border-stroke-default rounded-circle peer peer-checked:bg-brand peer-checked:border-brand peer-focus-visible:focus-ring transition-colors motion-standard"></div>
-                    <div class="absolute left-1 top-1 w-4 h-4 rounded-circle bg-fg-secondary peer-checked:translate-x-5 peer-checked:bg-brand-foreground transition-all motion-standard"></div>
+                    <div class="w-11 h-6 bg-fill-input border border-stroke-default rounded-circle peer-checked:bg-brand peer-checked:border-brand peer-focus-visible:focus-ring peer-disabled:bg-bg-disabled peer-disabled:border-stroke-subtle transition-colors motion-standard"></div>
+                    <div class="absolute left-1 top-1 w-4 h-4 rounded-circle bg-fg-secondary peer-checked:translate-x-5 peer-checked:bg-brand-foreground peer-disabled:bg-fg-disabled transition-all motion-standard"></div>
                   </div>
                 </label>
-                <label class="relative flex items-center justify-between cursor-pointer select-none">
+
+                <label class="relative flex items-center justify-between cursor-pointer select-none group">
                   <span class="text-body text-fg">Chế độ tiết kiệm pin</span>
                   <div class="relative inline-flex items-center">
                     <input type="checkbox" class="sr-only peer" />
-                    <div class="w-11 h-6 bg-fill-input border border-stroke-default rounded-circle peer peer-checked:bg-brand peer-checked:border-brand peer-focus-visible:focus-ring transition-colors motion-standard"></div>
-                    <div class="absolute left-1 top-1 w-4 h-4 rounded-circle bg-fg-secondary peer-checked:translate-x-5 peer-checked:bg-brand-foreground transition-all motion-standard"></div>
+                    <div class="w-11 h-6 bg-fill-input border border-stroke-default rounded-circle peer-checked:bg-brand peer-checked:border-brand peer-focus-visible:focus-ring peer-disabled:bg-bg-disabled peer-disabled:border-stroke-subtle transition-colors motion-standard"></div>
+                    <div class="absolute left-1 top-1 w-4 h-4 rounded-circle bg-fg-secondary peer-checked:translate-x-5 peer-checked:bg-brand-foreground peer-disabled:bg-fg-disabled transition-all motion-standard"></div>
                   </div>
                 </label>
-                <label class="relative flex items-center justify-between cursor-not-allowed select-none opacity-disabled">
-                  <span class="text-body text-fg-disabled">Tính năng thử nghiệm (Disabled)</span>
+
+                <label class="relative flex items-center justify-between cursor-not-allowed select-none group opacity-disabled">
+                  <span class="text-body text-fg-disabled cursor-not-allowed">Tính năng thử nghiệm (Disabled)</span>
                   <div class="relative inline-flex items-center">
                     <input type="checkbox" disabled class="sr-only peer" />
-                    <div class="w-11 h-6 bg-fill-input-disabled border border-stroke-subtle rounded-circle transition-colors motion-standard"></div>
-                    <div class="absolute left-1 top-1 w-4 h-4 rounded-circle bg-fg-disabled transition-all motion-standard"></div>
+                    <div class="w-11 h-6 bg-fill-input-disabled border border-stroke-subtle rounded-circle peer-disabled:bg-bg-disabled peer-disabled:border-stroke-subtle transition-colors motion-standard"></div>
+                    <div class="absolute left-1 top-1 w-4 h-4 rounded-circle bg-fg-disabled peer-disabled:bg-fg-disabled transition-all motion-standard"></div>
                   </div>
                 </label>
               </div>
@@ -251,20 +270,24 @@
           </div>
         </div>
 
-        <!-- Dialog Overlay -->
-        <div id="modal-dialog-overlay" class="fixed inset-0 bg-black/40 backdrop-blur-xs z-modal flex items-center justify-center p-4 hidden" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
-          <div class="surface-card elevation-28 rounded-card border border-stroke-default max-w-md w-full p-6 shadow-28 animate-slide-up space-y-4">
+        <!-- Native HTML5 Dialog (A11y compliant with Focus Trap & Backdrop) -->
+        <dialog
+          id="fluent-dialog"
+          class="surface-card elevation-28 rounded-card border border-stroke-default max-w-md w-full p-6 shadow-28 backdrop:bg-black/40 backdrop:backdrop-blur-xs m-auto animate-slide-up"
+          aria-labelledby="dialog-title"
+        >
+          <div class="space-y-4">
             <div class="flex items-center justify-between">
               <h3 id="dialog-title" class="text-subtitle2 font-semibold">Xác nhận hành động</h3>
               <button id="close-dialog-btn" aria-label="Đóng dialog" class="rounded-control p-1 text-fg-secondary hover:text-fg hover:bg-fill-input-hover focus-visible:focus-ring motion-standard">✕</button>
             </div>
-            <p class="text-body text-fg-secondary">Fluent 2 Dialog recipe — bề mặt <code class="text-caption bg-fill-input px-1 py-0.5 rounded-xs border border-stroke-default font-mono">elevation-28</code> + viền thích ứng theme.</p>
+            <p class="text-body text-fg-secondary">Fluent 2 Dialog recipe dùng native HTML5 <code class="text-caption bg-fill-input px-1 py-0.5 rounded-xs border border-stroke-default font-mono">&lt;dialog&gt;</code> — tự động khóa focus trap, khóa cuộn trang nền và phím Escape.</p>
             <div class="flex items-center justify-end gap-3 pt-4 border-t border-stroke-subtle">
               <button id="cancel-dialog-btn" class="border border-stroke-default text-fg rounded-control px-4 py-1.5 text-body font-semibold hover:bg-fill-input-hover focus-visible:focus-ring motion-standard">Hủy bỏ</button>
               <button id="confirm-dialog-btn" class="bg-brand text-brand-foreground rounded-control px-4 py-1.5 text-body font-semibold hover:bg-brand-hover active:bg-brand-pressed focus-visible:focus-ring motion-standard">Xác nhận</button>
             </div>
           </div>
-        </div>
+        </dialog>
       </section>
 
       <!-- =========== FOUNDATIONS =========== -->
@@ -354,61 +377,189 @@
           <div class="surface-acrylic p-3 text-caption2">surface-acrylic</div>
         </div>
       </section>
-      <!-- Scoped Dark Theme (Nested) -->
-      <section class="space-y-4">
-        <h2 class="text-heading text-title2">Scoped / Nested Dark Theme</h2>
-        <div class="grid grid-cols-2 gap-4">
-          <div class="p-4 rounded-card border border-stroke-default bg-bg-canvas text-fg">
-            <span class="text-caption text-secondary">Light container (Inherited)</span>
-            <p class="text-body mt-1">Nội dung theo theme mặc định của trang.</p>
+      <!-- =========== FT-03: SCOPED / NESTED THEME PLAYGROUND =========== -->
+      <section class="space-y-6">
+        <div class="border-b border-stroke-default pb-3">
+          <span class="text-caption font-semibold text-brand tracking-wider uppercase">Sprint 2 · FT-03</span>
+          <h2 class="text-heading text-title">Scoped / Nested Dark Theme Playground</h2>
+          <p class="text-body text-fg-secondary mt-1">
+            Đối chiếu trực quan trọn bộ component recipes giữa container Light mặc định và container Scoped Dark (<code class="font-mono text-caption">.dark</code>) nằm giữa cùng một trang.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Light Container with Full Controls -->
+          <div class="p-6 rounded-card border border-stroke-default bg-bg-canvas text-fg space-y-6 elevation-4">
+            <div class="flex items-center justify-between pb-3 border-b border-stroke-subtle">
+              <div>
+                <h4 class="text-subtitle font-semibold">Light Container</h4>
+                <span class="text-caption text-fg-secondary">Kế thừa theme trang chủ</span>
+              </div>
+              <span class="text-caption2 bg-fill-input border border-stroke-default px-2 py-0.5 rounded-xs font-mono">light</span>
+            </div>
+
+            <!-- Buttons -->
+            <div class="space-y-2">
+              <span class="text-caption font-semibold text-fg-secondary">Buttons</span>
+              <div class="flex flex-wrap gap-2">
+                <button class="bg-brand text-brand-foreground rounded-control px-3 py-1.5 text-caption font-semibold hover:bg-brand-hover focus-visible:focus-ring motion-standard">
+                  Primary
+                </button>
+                <button class="border border-stroke-default bg-transparent text-fg rounded-control px-3 py-1.5 text-caption font-semibold hover:bg-fill-input-hover focus-visible:focus-ring motion-standard">
+                  Outline
+                </button>
+                <button class="bg-brand-subtle text-brand rounded-control px-3 py-1.5 text-caption font-semibold hover:bg-brand-selected focus-visible:focus-ring motion-standard">
+                  Subtle
+                </button>
+                <button disabled class="border border-stroke-subtle text-fg-disabled rounded-control px-3 py-1.5 text-caption font-semibold opacity-disabled cursor-not-allowed">
+                  Disabled
+                </button>
+              </div>
+            </div>
+
+            <!-- Input -->
+            <div class="space-y-1.5">
+              <label class="block text-caption font-semibold text-fg">Input Field</label>
+              <input
+                type="text"
+                placeholder="Nhập dữ liệu..."
+                value="Nội dung mẫu (Light)"
+                class="w-full bg-fill-input text-fg placeholder:text-fg-tertiary border border-stroke-default rounded-control px-3 py-1.5 text-body motion-standard hover:border-stroke-outline focus-visible:border-brand focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand"
+              />
+            </div>
+
+            <!-- Form Controls: Checkbox & Switch -->
+            <div class="space-y-3 pt-2 border-t border-stroke-subtle">
+              <label class="flex items-center gap-3 cursor-pointer select-none group">
+                <div class="relative flex items-center justify-center">
+                  <input type="checkbox" checked class="peer appearance-none h-4 w-4 rounded-xs border border-stroke-default bg-fill-input checked:bg-brand checked:border-brand hover:border-stroke-outline focus-visible:focus-ring transition-colors motion-standard cursor-pointer" />
+                  <svg class="pointer-events-none absolute h-3 w-3 stroke-brand-foreground opacity-0 peer-checked:opacity-100 transition-opacity motion-standard" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                </div>
+                <span class="text-body text-fg">Checkbox tự động nhận token light</span>
+              </label>
+
+              <label class="relative flex items-center justify-between cursor-pointer select-none group">
+                <span class="text-body text-fg">Toggle / Switch</span>
+                <div class="relative inline-flex items-center">
+                  <input type="checkbox" checked class="sr-only peer" />
+                  <div class="w-11 h-6 bg-fill-input border border-stroke-default rounded-circle peer-checked:bg-brand peer-checked:border-brand peer-focus-visible:focus-ring peer-disabled:bg-bg-disabled peer-disabled:border-stroke-subtle transition-colors motion-standard"></div>
+                  <div class="absolute left-1 top-1 w-4 h-4 rounded-circle bg-fg-secondary peer-checked:translate-x-5 peer-checked:bg-brand-foreground peer-disabled:bg-fg-disabled transition-all motion-standard"></div>
+                </div>
+              </label>
+            </div>
+
+            <!-- Badges -->
+            <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-stroke-subtle">
+              <span class="inline-flex items-center gap-1 rounded-circle px-2 py-0.5 text-caption font-semibold bg-brand text-brand-foreground">Brand</span>
+              <span class="inline-flex items-center gap-1 rounded-circle px-2 py-0.5 text-caption font-semibold bg-success-bg text-success border border-success-border">● Thành công</span>
+              <span class="inline-flex items-center gap-1 rounded-circle px-2 py-0.5 text-caption font-semibold bg-critical-bg text-critical border border-critical-border">✕ Lỗi</span>
+            </div>
           </div>
-          <div class="dark p-4 rounded-card border border-stroke-default bg-bg-canvas text-fg">
-            <span class="text-caption text-secondary">Scoped dark container (.dark)</span>
-            <p class="text-body text-brand mt-1">Tự động nhận dark token độc lập.</p>
+
+          <!-- Scoped Dark Container with Full Controls -->
+          <div class="dark p-6 rounded-card border border-stroke-default bg-bg-canvas text-fg space-y-6 elevation-4">
+            <div class="flex items-center justify-between pb-3 border-b border-stroke-subtle">
+              <div>
+                <h4 class="text-subtitle font-semibold text-brand">Scoped Dark Container</h4>
+                <span class="text-caption text-fg-secondary">Nhận dark tokens độc lập qua <code class="font-mono">.dark</code></span>
+              </div>
+              <span class="text-caption2 bg-brand-subtle text-brand px-2 py-0.5 rounded-xs font-mono">scoped-dark</span>
+            </div>
+
+            <!-- Buttons -->
+            <div class="space-y-2">
+              <span class="text-caption font-semibold text-fg-secondary">Buttons</span>
+              <div class="flex flex-wrap gap-2">
+                <button class="bg-brand text-brand-foreground rounded-control px-3 py-1.5 text-caption font-semibold hover:bg-brand-hover focus-visible:focus-ring motion-standard">
+                  Primary
+                </button>
+                <button class="border border-stroke-default bg-transparent text-fg rounded-control px-3 py-1.5 text-caption font-semibold hover:bg-fill-input-hover focus-visible:focus-ring motion-standard">
+                  Outline
+                </button>
+                <button class="bg-brand-subtle text-brand rounded-control px-3 py-1.5 text-caption font-semibold hover:bg-brand-selected focus-visible:focus-ring motion-standard">
+                  Subtle
+                </button>
+                <button disabled class="border border-stroke-subtle text-fg-disabled rounded-control px-3 py-1.5 text-caption font-semibold opacity-disabled cursor-not-allowed">
+                  Disabled
+                </button>
+              </div>
+            </div>
+
+            <!-- Input -->
+            <div class="space-y-1.5">
+              <label class="block text-caption font-semibold text-fg">Input Field</label>
+              <input
+                type="text"
+                placeholder="Nhập dữ liệu..."
+                value="Nội dung mẫu (Dark)"
+                class="w-full bg-fill-input text-fg placeholder:text-fg-tertiary border border-stroke-default rounded-control px-3 py-1.5 text-body motion-standard hover:border-stroke-outline focus-visible:border-brand focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand"
+              />
+            </div>
+
+            <!-- Form Controls: Checkbox & Switch -->
+            <div class="space-y-3 pt-2 border-t border-stroke-subtle">
+              <label class="flex items-center gap-3 cursor-pointer select-none group">
+                <div class="relative flex items-center justify-center">
+                  <input type="checkbox" checked class="peer appearance-none h-4 w-4 rounded-xs border border-stroke-default bg-fill-input checked:bg-brand checked:border-brand hover:border-stroke-outline focus-visible:focus-ring transition-colors motion-standard cursor-pointer" />
+                  <svg class="pointer-events-none absolute h-3 w-3 stroke-brand-foreground opacity-0 peer-checked:opacity-100 transition-opacity motion-standard" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                </div>
+                <span class="text-body text-fg">Checkbox tự động nhận dark tokens</span>
+              </label>
+
+              <label class="relative flex items-center justify-between cursor-pointer select-none group">
+                <span class="text-body text-fg">Toggle / Switch</span>
+                <div class="relative inline-flex items-center">
+                  <input type="checkbox" checked class="sr-only peer" />
+                  <div class="w-11 h-6 bg-fill-input border border-stroke-default rounded-circle peer-checked:bg-brand peer-checked:border-brand peer-focus-visible:focus-ring peer-disabled:bg-bg-disabled peer-disabled:border-stroke-subtle transition-colors motion-standard"></div>
+                  <div class="absolute left-1 top-1 w-4 h-4 rounded-circle bg-fg-secondary peer-checked:translate-x-5 peer-checked:bg-brand-foreground peer-disabled:bg-fg-disabled transition-all motion-standard"></div>
+                </div>
+              </label>
+            </div>
+
+            <!-- Badges -->
+            <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-stroke-subtle">
+              <span class="inline-flex items-center gap-1 rounded-circle px-2 py-0.5 text-caption font-semibold bg-brand text-brand-foreground">Brand</span>
+              <span class="inline-flex items-center gap-1 rounded-circle px-2 py-0.5 text-caption font-semibold bg-success-bg text-success border border-success-border">● Thành công</span>
+              <span class="inline-flex items-center gap-1 rounded-circle px-2 py-0.5 text-caption font-semibold bg-critical-bg text-critical border border-critical-border">✕ Lỗi</span>
+            </div>
           </div>
         </div>
       </section>
     </main>
 
     <script>
+      // Theme toggle
       const root = document.documentElement;
       const toggle = document.getElementById("theme-toggle");
       const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-      const apply = (d) => {
+      const applyTheme = (d) => {
         root.classList.toggle("dark", d);
         root.dataset.theme = d ? "dark" : "light";
+        toggle.textContent = d ? "☀️ Light Mode" : "🌙 Dark Mode";
       };
-      apply(prefersDark.matches);
-      prefersDark.addEventListener("change", (e) => apply(e.matches));
-      toggle.addEventListener("click", () => apply(!root.classList.contains("dark")));
-      // Dialog Modal Logic
+      applyTheme(prefersDark.matches);
+      prefersDark.addEventListener("change", (e) => applyTheme(e.matches));
+      toggle.addEventListener("click", () => applyTheme(!root.classList.contains("dark")));
+
+      // HTML5 Native Dialog Logic (WCAG AA Focus Trap & Backdrop)
       const openDialogBtn = document.getElementById("open-dialog-btn");
       const closeDialogBtn = document.getElementById("close-dialog-btn");
       const cancelDialogBtn = document.getElementById("cancel-dialog-btn");
       const confirmDialogBtn = document.getElementById("confirm-dialog-btn");
-      const modalOverlay = document.getElementById("modal-dialog-overlay");
+      const dialog = document.getElementById("fluent-dialog");
 
-      const openModal = () => {
-        modalOverlay.classList.remove("hidden");
-        closeDialogBtn?.focus();
-      };
-      const closeModal = () => {
-        modalOverlay.classList.add("hidden");
-        openDialogBtn?.focus();
-      };
+      openDialogBtn?.addEventListener("click", () => dialog?.showModal());
+      closeDialogBtn?.addEventListener("click", () => dialog?.close());
+      cancelDialogBtn?.addEventListener("click", () => dialog?.close());
+      confirmDialogBtn?.addEventListener("click", () => dialog?.close());
 
-      openDialogBtn?.addEventListener("click", openModal);
-      closeDialogBtn?.addEventListener("click", closeModal);
-      cancelDialogBtn?.addEventListener("click", closeModal);
-      confirmDialogBtn?.addEventListener("click", closeModal);
-
-      window.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && !modalOverlay.classList.contains("hidden")) {
-          closeModal();
-        }
-      });
-      modalOverlay?.addEventListener("click", (e) => {
-        if (e.target === modalOverlay) closeModal();
+      // Click outside dialog closes it
+      dialog?.addEventListener("click", (e) => {
+        if (e.target === dialog) dialog.close();
       });
     </script>
   </body>

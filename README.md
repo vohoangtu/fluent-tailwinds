@@ -208,19 +208,27 @@ Thay vì nhồi nhét CSS class tĩnh phức tạp làm phình bundle, `fluent-t
 
 ### 3. Checkbox & Toggle / Switch
 ```html
-<!-- Checkbox -->
-<label class="flex items-center gap-3 cursor-pointer select-none">
-  <input type="checkbox" class="h-4 w-4 rounded-xs border border-stroke-default bg-fill-input accent-brand focus-visible:focus-ring hover:border-stroke-outline transition-colors motion-standard" />
-  <span class="text-body text-fg">Ghi nhớ đăng nhập</span>
+<!-- Checkbox (custom styled w/ appearance-none & SVG checkmark) -->
+<label class="flex items-center gap-3 cursor-pointer select-none group">
+  <div class="relative flex items-center justify-center">
+    <input
+      type="checkbox"
+      class="peer appearance-none h-4 w-4 rounded-xs border border-stroke-default bg-fill-input checked:bg-brand checked:border-brand hover:border-stroke-outline focus-visible:focus-ring transition-colors motion-standard cursor-pointer disabled:cursor-not-allowed disabled:bg-fill-input-disabled disabled:opacity-disabled"
+    />
+    <svg class="pointer-events-none absolute h-3 w-3 stroke-brand-foreground opacity-0 peer-checked:opacity-100 transition-opacity motion-standard" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+    </svg>
+  </div>
+  <span class="text-body text-fg group-has-disabled:text-fg-disabled">Ghi nhớ đăng nhập</span>
 </label>
 
-<!-- Toggle / Switch -->
-<label class="relative flex items-center justify-between cursor-pointer select-none">
+<!-- Toggle / Switch (hỗ trợ đầy đủ 5 trạng thái + peer-disabled) -->
+<label class="relative flex items-center justify-between cursor-pointer select-none group has-disabled:cursor-not-allowed has-disabled:opacity-disabled">
   <span class="text-body text-fg">Đồng bộ đám mây</span>
   <div class="relative inline-flex items-center">
     <input type="checkbox" checked class="sr-only peer" />
-    <div class="w-11 h-6 bg-fill-input border border-stroke-default rounded-circle peer peer-checked:bg-brand peer-checked:border-brand peer-focus-visible:focus-ring transition-colors motion-standard"></div>
-    <div class="absolute left-1 top-1 w-4 h-4 rounded-circle bg-fg-secondary peer-checked:translate-x-5 peer-checked:bg-brand-foreground transition-all motion-standard"></div>
+    <div class="w-11 h-6 bg-fill-input border border-stroke-default rounded-circle peer-checked:bg-brand peer-checked:border-brand peer-focus-visible:focus-ring peer-disabled:bg-bg-disabled peer-disabled:border-stroke-subtle transition-colors motion-standard"></div>
+    <div class="absolute left-1 top-1 w-4 h-4 rounded-circle bg-fg-secondary peer-checked:translate-x-5 peer-checked:bg-brand-foreground peer-disabled:bg-fg-disabled transition-all motion-standard"></div>
   </div>
 </label>
 ```
@@ -245,12 +253,10 @@ Thay vì nhồi nhét CSS class tĩnh phức tạp làm phình bundle, `fluent-t
   ...
 </div>
 
-<!-- Modal Dialog with Backdrop -->
-<div class="fixed inset-0 bg-black/40 backdrop-blur-xs z-modal flex items-center justify-center p-4">
-  <div class="surface-card elevation-28 rounded-card border border-stroke-default max-w-md w-full p-6 shadow-28 animate-slide-up">
-    ...
-  </div>
-</div>
+<!-- Modal Dialog (Native HTML5 <dialog> với Focus Trap, Scroll Lock & Backdrop chuẩn A11y) -->
+<dialog class="surface-card elevation-28 rounded-card border border-stroke-default max-w-md w-full p-6 shadow-28 backdrop:bg-black/40 backdrop:backdrop-blur-xs m-auto animate-slide-up">
+  ...
+</dialog>
 ```
 
 ---
